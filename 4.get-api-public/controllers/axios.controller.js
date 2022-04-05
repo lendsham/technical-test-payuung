@@ -15,7 +15,7 @@ const fetchApi = async (req, res) => {
         }
         res.status(200).json({ 'status': 200, 'code': '200', 'data': obj, 'message': 'Success' })
     } catch (error) {
-        res.status(400).json({ 'status': 400, 'code': '400', 'message': error.message })
+        res.status(400).json({ 'status': 400, 'code': '400', 'data': null, 'message': 'Something Went Wrong' })
     }
 }
 
