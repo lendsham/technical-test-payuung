@@ -12,13 +12,13 @@ class EmployeeController {
                 }
             })
 
-            if (checkEmail) {
-                return res.status(409).json({ 'status': 409, 'code': '409', 'data': null, 'message': 'Email already exist' })
-            }
-
             const { error } = employeeValidator(req.body);
             if (error) {
                 return res.status(400).json({ 'status': 400, 'code': '400', 'error': error.details[0].message })
+            }
+
+            if (checkEmail) {
+                return res.status(409).json({ 'status': 409, 'code': '409', 'data': null, 'message': 'Email already exist' })
             }
 
             const newData = await employee.create({
